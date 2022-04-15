@@ -1,0 +1,67 @@
+#------------------------------------------------
+#---primer ejemplo de prueba----
+#comentario entre separadores##
+# Este es un comentario correcto
+# Este comentario
+# ocupa varias líneas
+a = 2 * 4; # comentario tras sentencia
+
+#------------------------------------------------
+#---otroe ejemplo de prueba----
+# ejemplo de procedimiento
+#------------------------------------------------
+procedimiento ejemplo (a : entero):
+comienzo
+	a = a + 10;
+fin;
+
+#------------------------------------------------
+#---otroe ejemplo de prueba----
+si 4 + 8 = 12 entonces
+	a = b;
+sino
+	a = 0;
+fin;
+
+#---pruebas varias---------------------------------------------
+enter
+111* 45
+Este es un correo electronico jhch@uned.alumno.com
+*99906
+a123
+12345 
+este es un #comentario1 entre separadores 
+ejemplo
+de
+analisis
+lexico
+con
+JFlex NOT
+NOT
+VAR
+"STRING CON ESPACIOS ENTRE COMILLAS"
+15/04/2022
+OTRA FECHA A CONTINUACION 11/09/2006
+"STRING CON UNA CADENA DE FECHA QUE NO DEBE DE VISUALIZARSE 11/10/2021 NO VISUALIZARSE COMO FECHA"
+#comentario entre separadores##
+/* para validar operadores
+varias lineas
+linea2
+linea3
+este email es de juanito@gmail.com
+_R7872D
+
+# Este es un comentario correcto
+# Este comentario
+# ocupa varias líneas
+a = 2 * 4; # comentario tras sentencia
+-10
+11 - 4 
+	---En un lugar de la Mancha, de cuyo lugar no quiero acordarme
+	El Quijote de la mancha
+inicio
+este es el fin de mis prueba
+sino
+fin;
+
+

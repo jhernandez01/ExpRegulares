@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<repositorio xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="modulo_repositorio.xsd">
+  <modulos>
+    <modulo>
+      <nombre_modulo>Lago de datos de Taxis Madrid -ETL</nombre_modulo>
+      <identificador_modulo>M0001</identificador_modulo>
+      <lenguaje>Java</lenguaje>
+      <version>1.8.0</version>
+      <identificador_autor>A0001</identificador_autor>
+      <fecha>2020-01-01</fecha>
+      <dependencia_modulos/>
+      <tipo_licencia>GNU General Public License</tipo_licencia>
+    </modulo>
+    <modulo>
+      <nombre_modulo>Big Data de datos Taxis Madrid</nombre_modulo>
+      <identificador_modulo>M0002</identificador_modulo>
+      <lenguaje>Phyton</lenguaje>
+      <version>3.7.0</version>
+      <identificador_autor>A0002</identificador_autor>
+      <fecha>2021-10-31</fecha>
+      <dependencia_modulos>
+        <dependencia>M0001</dependencia>
+      </dependencia_modulos>
+      <tipo_licencia>Academic Free License</tipo_licencia>
+    </modulo>
+  </modulos>
+  <autores>
+    <autor>
+      <nombre_autor>Juan Perez</nombre_autor>
+      <identificador>A0001</identificador>
+      <correo>juanperez@gmail.com</correo>
+      <url_contacto>http://www.juanperez.com</url_contacto>
+    </autor>
+    <autor>
+      <nombre_autor>Alejandra Diaz</nombre_autor>
+      <identificador>A0002</identificador>
+      <correo>adiaz@madrid.com</correo>
+      <url_contacto>https://www.alediaz.com</url_contacto>
+    </autor>
+    <autor>
+      <nombre_autor>Isabel  Ruiz</nombre_autor>
+      <identificador>A0003</identificador>
+      <correo>iruiz@yahoo.es</correo>
+      <url_contacto/>
+    </autor>
+  </autores>
+</repositorio>

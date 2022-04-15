@@ -1,0 +1,138 @@
+﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="repositorio" type="repositorioType"/>
+  <xs:complexType name="moduloType">
+    <xs:sequence>
+    
+    <!--:Para el bombre del modulo he definido un tamanio minimo de 3 hasta 500 caracteres "/>-->
+      <xs:element type="longittudTipoNombreModulo500" name="nombre_modulo"/>
+      <!--validado el tiipo de dato y la longitud para el identificador ==> M0001"/>-->
+      <xs:element type="longittudYTipoIdentificadorModulo5" name="identificador_modulo"/>
+      <!-- referenciamos al tipo d dato definido para lenguaje-->
+      <xs:element type="tipoLenguaje" name="lenguaje"/>
+      <xs:element type="xs:string" name="version"/>
+      <!-- referenciamos al ID de un Autor, es obligatorio que tenga la referencia-->
+      <xs:element type="xs:IDREF" name="identificador_autor"/>
+      <xs:element type="xs:date" name="fecha"/>
+      <xs:element name="dependencia_modulos">
+        <xs:complexType mixed="true">
+          <xs:sequence>
+          <!-- referenciamos al ID de un modulo, en este caso puede tener o no dependencia de otro modulo-->
+            <xs:element type="xs:IDREF" name="dependencia" maxOccurs="unbounded" minOccurs="0" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element type="tipoLicencia" name="tipo_licencia"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dependencia_modulosType">
+    <xs:sequence>
+      <xs:element type="longittudYTipoIdentificadorModulo5" name="dependencia"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modulosType">
+    <xs:sequence>
+      <xs:element type="moduloType" name="modulo" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+   <!-- definiendo una retriccion del tipo y tamano de dato  para el identificador de modulo maximo 5 caracteres (alfanumerico)-->
+  <xs:simpleType  name ="longittudYTipoIdentificadorModulo5">
+    <xs:restriction base= "xs:ID">
+      <xs:length value = "5"/>
+      <xs:pattern value="[M]\d{4}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+    <!-- definiendo una retriccion de tamano de dato para nombre modulo minimo 3 maximo 500 caracteres-->
+  <xs:simpleType  name ="longittudTipoNombreModulo500">
+    <xs:restriction base= "xs:string">
+      <xs:minLength value = "3"/>
+      <xs:maxLength value = "500"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+    <!-- definiendo una retriccion de tipo de lenguaje-->
+    	<xs:simpleType name="tipoLenguaje">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Java"/>
+			<xs:enumeration value="PHP"/>
+			<xs:enumeration value="Phyton"/>
+			<xs:enumeration value="Ruby"/>
+			<xs:enumeration value="Scala"/>
+			<xs:enumeration value="Spark"/>
+			<xs:enumeration value="Perl"/>
+			<xs:enumeration value="C++"/>
+			<xs:enumeration value="Cobo"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	      <!-- definiendo una retriccion de tipo de licencia-->
+  	<xs:simpleType name="tipoLicencia">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GNU General Public License"/>
+			<xs:enumeration value="BSD License"/>
+			<xs:enumeration value="Academic Free License"/>
+			<xs:enumeration value="Apache Software License"/>
+			<xs:enumeration value="MIT License"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+   <!-- autor-->
+  <xs:complexType name="autorType">
+    <xs:sequence>
+      <!-- referenciamos al tipo d dato definido para nombre-->
+      <xs:element type="longitudTipoNombreAutor100" name="nombre_autor"/>
+      <!-- referenciamos al tipo d dato definido para identificador-->
+      <xs:element type="longittudYTipoIdentificadorAutor5" name="identificador"/>
+      <!-- referenciamos al tipo d dato definido para correo-->
+      <xs:element type="validarTipoCorreo100" name="correo"/>
+      <!-- referenciamos al tipo d dato definido para url contacto-->
+      <xs:element type="longittudYTipoUrlContacto" name="url_contacto"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="autoresType">
+    <xs:sequence>
+      <xs:element type="autorType" name="autor" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+   <!-- definiendo una retriccion de tamano de dato para nombre autor  minimo 3 maximo 100-->
+  <xs:simpleType  name ="longitudTipoNombreAutor100">
+    <xs:restriction base= "xs:string">
+      <xs:minLength value = "3"/>
+      <xs:maxLength value = "100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+     <!-- definiendo una retriccion de tamano y expresion regular para correo del autor,  minimo 3 maximo 100 caracteres-->
+  <xs:simpleType  name ="validarTipoCorreo100">
+    <xs:restriction base= "xs:string">
+      <xs:minLength value = "8"/>
+      <xs:maxLength value = "100"/>
+      <xs:pattern value="[\w\-]+[\w\.]+@[\w\.]+[\w]"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+    <!-- definiendo una retriccion del tipo y tamano de dato  para el identificador de autor maximo 5 caracteres (alfanumerico)-->
+  <xs:simpleType  name ="longittudYTipoIdentificadorAutor5">
+    <xs:restriction base= "xs:ID">
+      <xs:length value = "5"/>
+      <xs:pattern value="[A]\d{4}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+   <!-- definiendo una retriccion del tipo y tamano de dato  para el identificador de autor maximo 5 caracteres (alfanumerico)-->
+  <xs:simpleType  name ="longittudYTipoUrlContacto">
+    <xs:restriction base= "xs:string">
+      <xs:pattern value="([hH][tT]{2}[pP]([sS])?://[wW]{3}.*)?"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="repositorioType">
+    <xs:sequence>
+      <xs:element type="modulosType" name="modulos"/>
+      <xs:element type="autoresType" name="autores"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="nombre_repositorio"/>
+  </xs:complexType>
+</xs:schema>
